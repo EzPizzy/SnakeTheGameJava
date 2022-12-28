@@ -1,28 +1,28 @@
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
-public class Register {
+public class Register extends Login{
 
     public static User RegisterUser(){
-        String name, password;
+
         int row=0;
         Scanner scan = new Scanner(System.in);
         System.out.println("Podaj nazwę użytkownika");
-        name = scan.nextLine();
+        nameU = scan.nextLine();
         System.out.println("Podaj hasło użytkownika");
-        password = scan.nextLine();
-        System.out.println("Twoj nickname: "+name+" twoje hasło: "+password);
+        passwordU = scan.nextLine();
+        System.out.println("Twoj nickname: "+nameU+" twoje hasło: "+passwordU);
 
          try{
 
            ResultSet result= QueryExecutor.executeSelect("SELECT COUNT(*) AS COUNT FROM \"GameUsers\" ");
              while(result.next()) {
-                 row=result.getInt("COUNT")+1;
+                 row=result.getInt("COUNT")+100;
 
              }
 
-             QueryExecutor.executeQuery("INSERT INTO \"GameUsers\"( \"User_id\", \"User_name\", \"User_password\")  Values("+row+", '"+name+"','"+ password +"')");
-             return new User(row, name, password);
+             QueryExecutor.executeQuery("INSERT INTO \"GameUsers\"( \"User_id\", \"User_name\", \"User_password\")  Values("+row+", '"+nameU+"','"+ passwordU +"')");
+             return new User(row, nameU, passwordU);
 
         //String username= result.getString("User_name");
 

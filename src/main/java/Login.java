@@ -2,26 +2,27 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 public class Login {
-
+static String nameU;
+   static String passwordU;
 
     public static void LogInUser(){
 
-        String name, password;
+
         int correct=0;
         int userID=0;
         AfterLoginID a1= new AfterLoginID();
         Scanner scan = new Scanner(System.in);
         System.out.println("Podaj nazwę użytkownika");
-        name = scan.nextLine();
+        nameU = scan.nextLine();
         System.out.println("Podaj hasło użytkownika");
-        password = scan.nextLine();
+        passwordU = scan.nextLine();
 
         try{
 
 
 
 
-            ResultSet result= QueryExecutor.executeSelect("SELECT COUNT(*) AS COUNT FROM \"GameUsers\" WHERE \"User_name\"='"+name+"' AND \"User_password\"='"+password+"'  ");
+            ResultSet result= QueryExecutor.executeSelect("SELECT COUNT(*) AS COUNT FROM \"GameUsers\" WHERE \"User_name\"='"+nameU+"' AND \"User_password\"='"+passwordU+"'  ");
 
 
 
@@ -34,7 +35,7 @@ public class Login {
 
             if (correct==1){
                 try {
-                    ResultSet result2= QueryExecutor.executeSelect("SELECT \"User_id\"  AS USERID FROM \"GameUsers\" WHERE \"User_name\"='"+name+"' AND \"User_password\"='"+password+"'  ");
+                    ResultSet result2= QueryExecutor.executeSelect("SELECT \"User_id\"  AS USERID FROM \"GameUsers\" WHERE \"User_name\"='"+nameU+"' AND \"User_password\"='"+passwordU+"'  ");
                     while(result2.next()) {
                         userID=result2.getInt("USERID");
                         // userID=result.getInt("User_id");

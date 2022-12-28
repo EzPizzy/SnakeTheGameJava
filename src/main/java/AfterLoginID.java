@@ -1,5 +1,5 @@
 public class AfterLoginID {
-    int UserID;
+   static int UserID;
 
     public AfterLoginID() {
         UserID=0;
