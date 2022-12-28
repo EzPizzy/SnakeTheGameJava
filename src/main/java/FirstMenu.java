@@ -1,8 +1,9 @@
 import java.util.Scanner;
-public class FirstMenu {
-
+public class FirstMenu extends ForQueries {
+static  int chose;
+static int chose2;
     public static void MenuChoose(){
-        int chose;
+
         System.out.println("MENU- podaj liczbe");
         System.out.println("1. Zaloguj się");
         System.out.println("2. Zarejestruj się");

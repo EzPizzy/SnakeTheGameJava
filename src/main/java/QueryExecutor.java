@@ -15,7 +15,7 @@ public class QueryExecutor {
         throw new RuntimeException(e.getMessage());
         }
     }
-    public static void executeQuery(String query){
+    public static ResultSet executeQuery(String query){
         try {
             Connection connection = DBconnector.connect();
             Statement statement = connection.createStatement();
@@ -24,5 +24,6 @@ public class QueryExecutor {
         catch (SQLException e){
             throw new RuntimeException(e.getMessage());
         }
+        return null;
     }
 }
