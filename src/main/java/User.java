@@ -7,6 +7,15 @@ public class User {    private int id;
         this.password=password;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public String getName() {
+
+        return name;
+    }
+
     @Override
     public String toString() {
         return "User{" +

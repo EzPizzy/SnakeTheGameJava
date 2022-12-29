@@ -10,10 +10,8 @@ import javax.swing.border.Border;
 
 public class Graphics extends JPanel implements ActionListener {
 //ustalamy rozmiar planszy jak i wielkości naszego wonsza rzecznego :D podane tu rozmiary wykorzystywane sa w innych klasach
-    static final int WIDTH = 800;
-    static final int HEIGHT = 400;
-    static final int HEAD_OF_SNAKE = 25;
-    static final int BOARD_SIZE = (WIDTH * HEIGHT) / (HEAD_OF_SNAKE * HEAD_OF_SNAKE);
+    static final int WIDTH = 800, HEIGHT = 400 , HEAD_OF_SNAKE = 25, BOARD_SIZE = (WIDTH * HEIGHT) / (HEAD_OF_SNAKE * HEAD_OF_SNAKE);
+
 
     final Font font = new Font("Impact", Font.BOLD, 22);
     //pozycjonowanie względem osi x oraz y
@@ -27,16 +25,17 @@ public class Graphics extends JPanel implements ActionListener {
     char direction = 'R';
     boolean isMoving = false;
     int user_ids=0;
-    final Timer timer = new Timer(79, this);
+    final Timer timer = new Timer(75, this);
 
 
     public Graphics(int userid) {
-
+        //ustalenia co do wyglądu planszy
         this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
         this.setBackground(Color.black);
         this.setBorder(BorderFactory.createLineBorder(Color.black));
         this.setFocusable(true);
         this.user_ids=userid;
+        //obsługa sterowania, nasłuchiwanie strzałek
         this.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -108,7 +107,7 @@ public class Graphics extends JPanel implements ActionListener {
 
                 ResultSet result= QueryExecutor.executeSelect("SELECT COUNT(*) AS COUNT FROM \"Games\" ");
                 while(result.next()) {
-                    row=result.getInt("COUNT")+1;
+                    row=result.getInt("COUNT")+101;
 
                 }
 

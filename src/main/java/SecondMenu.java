@@ -52,6 +52,18 @@ public class SecondMenu extends FirstMenu{
             if (chose2==1){
                 new Game(a1.UserID);
             }
+            if (chose2==2){
+                GroupStats gs= new GroupStats();
+                gs.GroupAVGScore();
+                System.out.println("--------------------------------------------");
+                System.out.println("1. Rozpocznij grę");
+                chose2 = scan.nextInt();
+                if (chose2==1){
+                    new Game(a1.UserID);
+                }
+                else System.out.println( "Do zobaczenia");
+
+            }
             else System.out.println( "Do zobaczenia");
         }
         if (chose==3){
